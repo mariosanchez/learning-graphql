@@ -31,6 +31,7 @@ type Country {
 }
 type Query {
   getBeers: [Beer]
+  retrieveBeer(id: ID!): Beer
 }
 `;
 

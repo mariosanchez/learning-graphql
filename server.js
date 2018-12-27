@@ -6,7 +6,10 @@ const beers = require('./data');
 const typeDefs = require('./schema');
 
 const resolvers = {
-  Query: { getBeers: () => beers }
+  Query: {
+    getBeers: () => beers,
+    retrieveBeer: (obj, { id }) => beers.find(beer => beer.id === Number(id))
+  }
 };
 
 const schema = makeExecutableSchema({
