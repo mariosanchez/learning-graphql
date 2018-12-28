@@ -9,7 +9,7 @@ Exercises for learning GraphQL
 
 ## Examples
 
-- [With GraphQL.js](examples/with-graphqljs/README.md)
+- [With GraphQL.js](examples/with-graphqljs)
 
 ## Run Project
 
