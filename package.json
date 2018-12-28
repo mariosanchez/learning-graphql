@@ -1,0 +1,25 @@
+{
+  "name": "learning-graphql",
+  "description": "Exercises for learning GraphQL",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "Learning",
+    "GraphQL",
+    "NodeJS",
+    "Apollo",
+    "Prisma"
+  ],
+  "author": "Mario Sánchez",
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "graphql": "^14.0.2",
+    "graphql-server-express": "^1.4.0",
+    "graphql-tools": "^4.0.3"
+  }
+}
