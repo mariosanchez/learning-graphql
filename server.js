@@ -1,21 +1,7 @@
 const express = require('express');
 const { graphqlExpress, graphiqlExpress } = require('graphql-server-express');
-const { makeExecutableSchema } = require('graphql-tools');
 const bodyParser = require('body-parser');
-const beers = require('./data');
-const typeDefs = require('./schema');
-
-const resolvers = {
-  Query: {
-    getBeers: () => beers,
-    retrieveBeer: (obj, { id }) => beers.find(beer => beer.id === Number(id))
-  }
-};
-
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers
-});
+const schema = require('./schema');
 
 const PORT = 3500;
 const app = express();
