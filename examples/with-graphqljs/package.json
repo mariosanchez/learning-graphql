@@ -1,0 +1,14 @@
+{
+  "name": "with-graphqljs",
+  "version": "1.0.0",
+  "description": "This example shows how to do a basic implementation just using GraphQL.js and `express-graphql` without use the Apollo community tools.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Mario Sánchez",
+  "dependencies": {
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2"
+  }
+}
