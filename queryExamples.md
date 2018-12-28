@@ -42,7 +42,9 @@ query($beerID: ID!) {
 }
 ```
 
-**Retrieve the name of the beers with the matching ids using aliases (useful for retrieve multiple specific beers).**
+**Retrieve the name of the beers with the matching ids using aliases.**
+
+Useful for retrieve multiple specific beers
 
 ```graphql
 query($beerID1: ID!, $beerID2: ID!) {
@@ -62,7 +64,9 @@ query($beerID1: ID!, $beerID2: ID!) {
 }
 ```
 
-**Using fragments for avoid repeating fields.**
+**Using fragments.**
+
+For avoid repeating fields
 
 ```graphql
 query($beerID1: ID!, $beerID2: ID!) {
@@ -87,7 +91,9 @@ fragment beerInfo on Beer {
 }
 ```
 
-**Using inline fragments, useful when you have different types possible (not very suitable in this example).**
+**Using inline fragments.**
+
+Useful when you have different types possible (not very suitable in this example)
 
 ```graphql
 query($beerID: ID!) {

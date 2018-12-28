@@ -58,3 +58,16 @@ fragment beerInfo on Beer {
   "breweryName": "Mammoth Brewing Company"
 }
 ```
+
+**Delete an existing beer.**
+
+```graphql
+mutation deleteBeer {
+  deleteBeer(id: 1) {
+    id
+    message
+  }
+}
+```
+
+If you do it more than once will result in an error.
