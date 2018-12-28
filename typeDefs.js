@@ -35,6 +35,12 @@ type Query {
 }
 type Mutation {
   createBeer(name: String!, breweryName: String!): Beer
+  updateBeer(
+    id: ID!,
+    name: String,
+    styleName: String,
+    breweryName: String
+  ): Beer
 }
 `;
 

@@ -28,3 +28,33 @@ fragment beerInfo on Beer {
   "breweryName": "ROGUE"
 }
 ```
+
+**Update an existing beer.**
+
+```graphql
+mutation updateBeer($id: ID!, $name: String!, $styleName: String!, $breweryName: String!) {
+  updateBeer(id: $id, name: $name, styleName: $styleName, breweryName: $breweryName) {
+    ...beerInfo
+  }
+}
+
+fragment beerInfo on Beer {
+  id
+  name
+  style {
+    name
+  }
+  brewery {
+    name
+  }
+}
+```
+
+```json
+{
+  "id": 1,
+  "name": "Wild Sierra",
+  "styleName": "Saison",
+  "breweryName": "Mammoth Brewing Company"
+}
+```
