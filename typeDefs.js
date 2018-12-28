@@ -33,6 +33,9 @@ type Query {
   getBeers: [Beer]
   retrieveBeer(id: ID!): Beer
 }
+type Mutation {
+  createBeer(name: String!, breweryName: String!): Beer
+}
 `;
 
 module.exports = typeDefs;
