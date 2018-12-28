@@ -33,6 +33,17 @@ const resolvers = {
 
       beers[beerIndex] = beer;
       return beer;
+    },
+    deleteBeer: (obj, { id }) => {
+      const beer = beers.find(beer => beer.id === Number(id));
+
+      if (!beer) {
+        throw new Error(`Beer with 'id' equal to '${id}' not found`);
+      }
+
+      const beerIndex = beers.indexOf(beer);
+      beers.splice(beerIndex, 1);
+      return { id, message: `Beer with 'id' equal to '${id}' delete successfully` };
     }
   }
 };

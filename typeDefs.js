@@ -29,6 +29,10 @@ type Country {
   name: String!
   icon: String
 }
+type DeleteMessage {
+  id: ID!,
+  message: String,
+}
 type Query {
   getBeers: [Beer]
   retrieveBeer(id: ID!): Beer
@@ -41,6 +45,7 @@ type Mutation {
     styleName: String,
     breweryName: String
   ): Beer
+  deleteBeer(id: ID!): DeleteMessage
 }
 `;
 
