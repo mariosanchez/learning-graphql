@@ -2,7 +2,7 @@
   "name": "learning-graphql",
   "description": "Exercises for learning GraphQL",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon src/server.js"
   },
   "keywords": [
     "Learning",
