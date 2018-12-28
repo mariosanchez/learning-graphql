@@ -1,10 +1,15 @@
 # learning-graphql
+
 Exercises for learning GraphQL
 
 ## Docs
 
-* [Query examples](docs/queryExamples.md)
-* [Mutation examples](docs/mutationExamples.md)
+- [Query examples](docs/queryExamples.md)
+- [Mutation examples](docs/mutationExamples.md)
+
+## Examples
+
+- [With GraphQL.js](examples/with-graphqljs/README.md)
 
 ## Run Project
 
