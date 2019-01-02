@@ -11,6 +11,7 @@ Exercises for learning GraphQL
 ## Examples
 
 - [With GraphQL.js](examples/with-graphqljs)
+- [With graphql-yoga](examples/with-graphql-yoga)
 
 ## Run Project
 
