@@ -1,15 +1,21 @@
 const express = require('express');
-const { graphqlExpress, graphiqlExpress } = require('graphql-server-express');
+const { createServer } = require('http');
+const { ApolloServer } = require('apollo-server-express');
 const bodyParser = require('body-parser');
-const schema = require('./schema');
+const resolvers = require('./resolvers');
+const typeDefs = require('./typeDefs');
 
 const PORT = 3500;
+const GRAPHQL_PATH = '/graphql';
+
 const app = express();
+const server = new ApolloServer({ typeDefs, resolvers });
 
-const endpointURL = '/graphql';
-app.use(endpointURL, bodyParser.json(), graphqlExpress({ schema }));
-app.use('/graphiql', graphiqlExpress({ endpointURL }));
+server.applyMiddleware({ app, path: GRAPHQL_PATH });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+const httpServer = createServer(app);
+server.installSubscriptionHandlers(httpServer);
+
+httpServer.listen(PORT, () => {
+  console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`);
 });

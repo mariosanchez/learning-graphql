@@ -1,4 +1,9 @@
+const { PubSub } = require('apollo-server-express');
 const beers = require('./data');
+
+const BEER_CREATED = 'BEER_CREATED'; // Topic when we create a new beer
+
+const pubsub = new PubSub();
 
 const resolvers = {
   Query: {
@@ -16,6 +21,10 @@ const resolvers = {
         }
       };
       beers.push(newBeer); // This is in memory
+      pubsub.publish(BEER_CREATED, {
+        // Publish new beer to PubSub
+        beerCreated: newBeer
+      });
       return newBeer;
     },
     updateBeer: (obj, { id, name, styleName, breweryName }) => {
@@ -44,6 +53,11 @@ const resolvers = {
       const beerIndex = beers.indexOf(beer);
       beers.splice(beerIndex, 1);
       return { id, message: `Beer with 'id' equal to '${id}' delete successfully` };
+    }
+  },
+  Subscription: {
+    beerCreated: {
+      subscribe: () => pubsub.asyncIterator(BEER_CREATED)
     }
   }
 };
