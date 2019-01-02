@@ -1,4 +1,4 @@
-const { GraphQLServer } = require('graphql-yoga');
+const { GraphQLServer, PubSub } = require('graphql-yoga');
 var records = [];
 /* Create a GraphQL schema */
 const typeDefs = `
@@ -9,7 +9,11 @@ const typeDefs = `
    createRecord(recordData: String!): String!
    updateRecord(recordIndex: Int!, recordName: String!): String
  }
+ type Subscription {
+  recordCreated: String!
+ }
 `;
+const RECORD_CREATED = 'RECORD_CREATED';
 /* Implement resolvers for the GraphQL schema operations */
 const resolvers = {
   Query: {
@@ -18,6 +22,10 @@ const resolvers = {
   Mutation: {
     createRecord: (_, { recordData }) => {
       records.push(recordData);
+      pubsub.publish(RECORD_CREATED, {
+        // Publish new beer to PubSub
+        recordCreated: recordData
+      });
       return `New Record Created: ${recordData}`;
     },
     updateRecord: (_, { recordIndex, recordName }) => {
@@ -27,8 +35,14 @@ const resolvers = {
       records[+recordIndex] = recordName;
       return `Record Updated to: ${records[recordIndex]}`;
     }
+  },
+  Subscription: {
+    recordCreated: {
+      subscribe: () => pubsub.asyncIterator(RECORD_CREATED)
+    }
   }
 };
 /* Create a GraphQL server using GraphQLServer */
-const server = new GraphQLServer({ typeDefs, resolvers });
+const pubsub = new PubSub();
+const server = new GraphQLServer({ typeDefs, resolvers, context: { pubsub } });
 server.start(() => console.log('Server is running on localhost:4000'));

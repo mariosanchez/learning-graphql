@@ -7,6 +7,8 @@ This example shows how create a GraphQL server using `graphql-yoga`, a easy to u
 - 🛠 `GraqhQL.js`/`graphql-tools`.
 - ⛹️‍♀️ `graphql-playground`.
 
+It also has cool features like built in error (i.e. when you try to update nonexisting data) handling and easy to implement subscriptions.
+
 ## Run this Example
 
 In order to run this example execute the following command in this folder:
@@ -28,5 +30,13 @@ mutation {
 ```graphql
 query {
   fetchRecords
+}
+```
+
+Also you can try subscriptions:
+
+```graphql
+subscription {
+  recordCreated
 }
 ```
