@@ -6,6 +6,7 @@ Exercises for learning GraphQL
 
 - [Query examples](docs/queryExamples.md)
 - [Mutation examples](docs/mutationExamples.md)
+- [Subscription examples](docs/subscriptionExamples.md)
 
 ## Examples
 

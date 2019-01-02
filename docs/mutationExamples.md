@@ -1,6 +1,6 @@
 # GraphQL mutation examples
 
-You can try them running the server and accessing to `http://localhost:3500/graphiql`.
+You can try them running the server and accessing to `http://localhost:3500/graphql`(Playground).
 
 ## createBeer
 
