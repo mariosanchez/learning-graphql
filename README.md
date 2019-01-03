@@ -13,6 +13,7 @@ Exercises for learning GraphQL
 - [With GraphQL.js](examples/with-graphqljs)
 - [With graphql-yoga](examples/with-graphql-yoga)
 - [With Graphcool Framework](examples/with-graphcool)
+- [With Prisma](examples/with-prisma)
 
 ## Run Project
 

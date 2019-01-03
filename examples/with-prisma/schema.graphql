@@ -1,0 +1,25 @@
+type Query {
+  beersOnStock: [Beer!]!
+  beer(beerId: ID!): Beer
+  beersByUser(userId: ID!): [Beer!]!
+}
+
+type Mutation {
+  createUser(name: String!): User
+  createDraft(title: String!, userId: ID!): Beer
+  reStock(beerId: ID!): Beer
+}
+
+type User {
+  id: ID!
+  email: String
+  name: String!
+  beers: [Beer!]!
+}
+
+type Beer {
+  id: ID!
+  name: String!
+  onStock: Boolean!
+  author: User
+}

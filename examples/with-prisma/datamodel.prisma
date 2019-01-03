@@ -1,0 +1,13 @@
+type User {
+  id: ID! @unique
+  email: String @unique
+  name: String!
+  beers: [Beer!]!
+}
+
+type Beer {
+  id: ID! @unique
+  name: String!
+  onStock: Boolean! @default(value: "false")
+  author: User
+}
