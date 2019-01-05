@@ -1,0 +1,15 @@
+{
+  "name": "learning-graphql-client",
+  "description": "Exercises for learning GraphQL",
+  "scripts": {},
+  "keywords": [
+    "Learning",
+    "GraphQL",
+    "Apollo",
+    "React",
+    "Parcel"
+  ],
+  "author": "Mario Sánchez",
+  "devDependencies": {},
+  "dependencies": {}
+}
