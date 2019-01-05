@@ -1,8 +1,8 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import BeerList from './components/BeerList/BeerList';
-import logo from './logo.svg';
+import Home from './Home/Home';
 import './App.css';
 
 const client = new ApolloClient({
@@ -11,14 +11,11 @@ const client = new ApolloClient({
 
 const App = () => (
   <ApolloProvider client={client}>
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">BEERs!</h1>
-      </header>
-      <p className="App-intro">This is a basic React App</p>
-      <BeerList />
-    </div>
+    <Router>
+      <div className="App">
+        <Route exact path="/" component={Home} />
+      </div>
+    </Router>
   </ApolloProvider>
 );
 
