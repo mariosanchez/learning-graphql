@@ -17,6 +17,8 @@ Exercises for learning GraphQL
 
 ## Run Project
 
+### Server side
+
 Install dependencies:
 
 `npm i`
@@ -32,3 +34,7 @@ Deploy Prisma server:
 Run the API server:
 
 `npm run start`
+
+#### Troubleshooting
+
+- If you get a `PROJECT NOT FOUND: default@default` error you might need to redeploy prisma.
