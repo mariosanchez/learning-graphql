@@ -9,6 +9,7 @@
   "author": "Mario Sánchez",
   "dependencies": {
     "express-graphql": "^0.7.1",
-    "graphql": "^14.0.2"
+    "graphql": "^14.0.2",
+    "graphql-yoga": "^1.16.9"
   }
 }

@@ -2,13 +2,51 @@
 
 You can try them running the server and accessing to `http://localhost:3500/graphql`(Playground).
 
-## createBeer
+You may need to add your authorization bearer to the HTTP Headers in Playground once you have done login:
 
-**Create new basic beer.**
+```json
+{
+  "Authorization": "Bearer __YOUR_TOKEN__"
+}
+```
+
+## signup
+
+**Create a new user.**
 
 ```graphql
-mutation createNewBeer($name: String!, $breweryName: String!) {
-  createBeer(name: $name, breweryName: $breweryName) {
+mutation {
+  signup(email: "kevin@bacon.com", password: "123456", name: "Kevin") {
+    token
+    user {
+      id
+    }
+  }
+}
+```
+
+## login
+
+**Authenticate with an existing user.**
+
+```graphql
+mutation {
+  login(email: "kevin@bacon.com", password: "123456") {
+    token
+    user {
+      id
+    }
+  }
+}
+```
+
+## createBeer
+
+**Create new basic beer (auth required).**
+
+```graphql
+mutation createNewBeer($name: String!, $description: String!) {
+  createBeer(name: $name, description: $description) {
     ...beerInfo
   }
 }
@@ -16,24 +54,22 @@ mutation createNewBeer($name: String!, $breweryName: String!) {
 fragment beerInfo on Beer {
   id
   name
-  brewery {
-    name
-  }
+  description
 }
 ```
 
 ```json
 {
   "name": "Brutal IPA",
-  "breweryName": "ROGUE"
+  "description": "Awesome beer!"
 }
 ```
 
-**Update an existing beer.**
+**Update an existing beer (auth and ownership required).**
 
 ```graphql
-mutation updateBeer($id: ID!, $name: String!, $styleName: String!, $breweryName: String!) {
-  updateBeer(id: $id, name: $name, styleName: $styleName, breweryName: $breweryName) {
+mutation updateBeer($id: ID!, $name: String!, $description: String!) {
+  updateBeer(id: $id, name: $name, description: $description) {
     ...beerInfo
   }
 }
@@ -41,29 +77,23 @@ mutation updateBeer($id: ID!, $name: String!, $styleName: String!, $breweryName:
 fragment beerInfo on Beer {
   id
   name
-  style {
-    name
-  }
-  brewery {
-    name
-  }
+  description
 }
 ```
 
 ```json
 {
-  "id": 1,
+  "id": "__BEER_ID__",
   "name": "Wild Sierra",
-  "styleName": "Saison",
-  "breweryName": "Mammoth Brewing Company"
+  "description": "Super tasty beer :)"
 }
 ```
 
-**Delete an existing beer.**
+**Delete an existing beer (auth and ownership required).**
 
 ```graphql
 mutation deleteBeer {
-  deleteBeer(id: 1) {
+  deleteBeer(id: "__BEER_ID__") {
     id
     message
   }
@@ -71,3 +101,14 @@ mutation deleteBeer {
 ```
 
 If you do it more than once will result in an error.
+
+**Publish an existing beer (auth and ownership required).**
+
+```graphql
+mutation {
+  publishBeer(id: "__BEER_ID__") {
+    name
+    published
+  }
+}
+```

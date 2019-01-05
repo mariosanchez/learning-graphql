@@ -17,6 +17,18 @@ Exercises for learning GraphQL
 
 ## Run Project
 
-You can run the project by executing the following command:
+Install dependencies:
 
-`npm i && npm run dev`
+`npm i`
+
+Initialize docker environment for the database and Prisma server:
+
+`npm run docker:start`
+
+Deploy Prisma server:
+
+`npm run prisma:deploy`
+
+Run the API server:
+
+`npm run start`
