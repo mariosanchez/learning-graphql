@@ -1,6 +1,6 @@
-# learning-graphql
+# 🧬 learning-graphql
 
-Exercises for learning GraphQL
+Exercises for learning GraphQL.
 
 ## Docs
 
