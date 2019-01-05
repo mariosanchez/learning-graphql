@@ -1,6 +1,28 @@
 # GraphQL query examples
 
-You can try them running the server and accessing to `http://localhost:3500/graphiql`.
+You can try them running the server and accessing to `http://localhost:3500/graphql`(Playground).
+
+You may need to add your authorization bearer to the HTTP Headers in Playground once you have done login:
+
+```json
+{
+  "Authorization": "Bearer __YOUR_TOKEN__"
+}
+```
+
+## me
+
+**Retrieve your user data.**
+
+```graphql
+{
+  me {
+    id
+    name
+    email
+  }
+}
+```
 
 ## getBeers
 
@@ -38,7 +60,7 @@ query($beerID: ID!) {
 
 ```json
 {
-  "beerID": 3
+  "beerID": "__BEER_ID__"
 }
 ```
 
@@ -59,8 +81,8 @@ query($beerID1: ID!, $beerID2: ID!) {
 
 ```json
 {
-  "beerID1": 3,
-  "beerID2": 1
+  "beerID1": "__BEER_ID_1__",
+  "beerID2": "__BEER_ID_2__"
 }
 ```
 
@@ -86,8 +108,8 @@ fragment beerInfo on Beer {
 
 ```json
 {
-  "beerID1": 3,
-  "beerID2": 1
+  "beerID1": "__BEER_ID_1__",
+  "beerID2": "__BEER_ID_2__"
 }
 ```
 
@@ -108,7 +130,7 @@ query($beerID: ID!) {
 
 ```json
 {
-  "beerID": 3
+  "beerID": "__BEER_ID__"
 }
 ```
 
@@ -116,7 +138,7 @@ query($beerID: ID!) {
 
 ```graphql
 query($skipDescription: Boolean!, $includeCity: Boolean!) {
-  retrieveBeer(id: 1) {
+  retrieveBeer(id: "__BEER_ID__") {
     name
     description @skip(if: $skipDescription)
     brewery {

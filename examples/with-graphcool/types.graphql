@@ -1,0 +1,24 @@
+type User @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String! @isUnique
+  password: String!
+  name: String
+  dateOfBirth: DateTime
+  # declare relations between models
+  beers: [Beer!]! @relation(name: "UserBeers")
+}
+
+# Create a model for user’s beers
+type Beer @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  description: String!
+  tasted: Boolean! @defaultValue(value: false)
+  # Every relation also required a back-relation (to determine 1:1, 1:n or n:m)
+  topDrinker: User! @relation(name: "UserBeers")
+}
+

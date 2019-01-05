@@ -1,0 +1,15 @@
+{
+  "name": "with-graphql-yoga",
+  "version": "1.0.0",
+  "description": "This example shows how to create a server using graphql-yoga.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Mario Sánchez",
+  "dependencies": {
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2",
+    "graphql-yoga": "^1.16.9"
+  }
+}

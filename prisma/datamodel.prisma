@@ -1,0 +1,50 @@
+type Beer {
+  id: ID! @unique
+  name: String!
+  picture: String
+  brewery: Brewery
+  style: Style
+  glass: [Glass]
+  ibu: Int
+  abv: Float
+  description: String
+  published: Boolean! @default(value: "false")
+  reviewer: User!
+}
+
+type Style {
+  id: ID! @unique
+  name: String!
+}
+
+type Glass {
+  id: ID! @unique
+  name: String!
+}
+
+type Brewery {
+  id: ID! @unique
+  name: String!
+  location: Location
+}
+
+type Location {
+  id: ID! @unique
+  city: String
+  country: Country!
+}
+
+type Country {
+  id: ID! @unique
+  countryCode: String! @unique
+  name: String!
+  icon: String
+}
+
+type User {
+  id: ID! @unique
+  email: String! @unique
+  password: String!
+  name: String
+  beersReviewed: [Beer!]!
+}
