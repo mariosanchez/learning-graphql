@@ -53,9 +53,31 @@ Run the API server:
 
 `npm run start`
 
+Access to the playground:
+
+`http://localhost:3500/graphql`
+
 #### Troubleshooting
 
 - If you get a `PROJECT NOT FOUND: default@default` error you might need to redeploy prisma.
+
+### Client side
+
+Access to client folder:
+
+`cd client`
+
+Install dependencies:
+
+`npm i`
+
+Run the client:
+
+`npm run start`
+
+Access to the app:
+
+`http://localhost:1234`
 
 ## Resources
 

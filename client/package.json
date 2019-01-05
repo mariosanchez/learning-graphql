@@ -1,7 +1,9 @@
 {
   "name": "learning-graphql-client",
   "description": "Exercises for learning GraphQL",
-  "scripts": {},
+  "scripts": {
+    "start": "parcel ./src/index.html"
+  },
   "keywords": [
     "Learning",
     "GraphQL",
