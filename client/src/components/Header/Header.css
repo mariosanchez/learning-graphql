@@ -1,0 +1,15 @@
+.Header {
+  text-align: center;
+  background-color: rebeccapurple;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.Header__logo {
+  height: 80px;
+}
+
+.Header__title {
+  font-size: 1.5em;
+}
