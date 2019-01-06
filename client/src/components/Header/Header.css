@@ -1,15 +1,27 @@
 .Header {
-  text-align: center;
+  display: flex;
+  align-items: center;
   background-color: rebeccapurple;
   height: 150px;
-  padding: 20px;
+  padding: 1rem 3rem;
   color: white;
 }
 
-.Header__logo {
+.Header__home-link {
+  flex: 1;
+  text-decoration: none;
+  color: white;
+}
+
+.Header__logo svg {
   height: 80px;
 }
 
 .Header__title {
   font-size: 1.5em;
+}
+
+.Header__login-icon svg {
+  height: 2rem;
+  fill: white;
 }
