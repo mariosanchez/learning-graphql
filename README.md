@@ -1,4 +1,4 @@
-# 🧬 learning-graphql
+# 💡 learning-graphql
 
 Exercises for learning GraphQL.
 
