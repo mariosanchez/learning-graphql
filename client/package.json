@@ -1,0 +1,28 @@
+{
+  "name": "learning-graphql-client",
+  "description": "Exercises for learning GraphQL",
+  "scripts": {
+    "start": "parcel ./src/index.html"
+  },
+  "keywords": [
+    "Learning",
+    "GraphQL",
+    "Apollo",
+    "React",
+    "Parcel"
+  ],
+  "author": "Mario Sánchez",
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0"
+  },
+  "dependencies": {
+    "apollo-boost": "^0.1.23",
+    "graphql": "^14.0.2",
+    "parcel-plugin-inlinesvg": "^0.1.0",
+    "react": "^16.7.0",
+    "react-apollo": "^2.3.3",
+    "react-dom": "^16.7.0",
+    "react-router-dom": "^4.3.1",
+    "react-svg-inline": "^2.1.1"
+  }
+}

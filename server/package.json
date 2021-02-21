@@ -1,5 +1,5 @@
 {
-  "name": "learning-graphql",
+  "name": "learning-graphql-server",
   "description": "Exercises for learning GraphQL",
   "scripts": {
     "start": "nodemon src/server.js",
